@@ -3,7 +3,7 @@ from cipher.caesar import CaesarCipher
 from cipher.vigenere import VigenereCipher
 from cipher.railfence import RailFenceCipher
 from cipher.playfair import PlayFairCipher
-from cipher_transposition import TranspositionCipher
+from cipher.transpostion import TranspositionCipher
 
 app = Flask(__name__)
 
@@ -24,6 +24,7 @@ def transposition_decrypt():
     key = int(data.get('key'))
     decrypted_text = transposition_cipher.decrypt(cipher_text, key)
     return jsonify({'decrypted_text': decrypted_text})
+
 
 playfair_cipher = PlayFairCipher()
 @app.route('/api/playfair/creatematrix', methods=['POST'])
